@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "btc_aml"
+version = "0.1.0"
+description = "Detecting illicit Bitcoin transactions with graph neural networks (Elliptic dataset)"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Lets `pytest` find the package without installing it first.
+pythonpath = ["src"]
+testpaths = ["tests"]
+filterwarnings = ["ignore::FutureWarning", "ignore::DeprecationWarning"]

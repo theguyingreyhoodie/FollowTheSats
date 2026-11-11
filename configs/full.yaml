@@ -1,0 +1,77 @@
+# Full config: 5 seeds, hyperparameter search, longer training.
+# This is the config behind the numbers in the README.
+# See configs/quick.yaml for comments on what each key means.
+
+run_name: full
+seeds: [0, 1, 2, 3, 4]
+device: auto
+
+paths:
+  data_dir: data
+  results_dir: results
+  models_dir: models
+
+split:
+  train: [1, 29]
+  val: [30, 34]
+  test: [35, 49]
+
+feature_sets: [LF, AF]
+alert_k: 50
+
+baselines:
+  logreg:
+    max_iter: 1000
+    grid: {C: [0.01, 0.1, 1.0]}
+  rf:
+    n_estimators: 300
+    grid: {max_features: [sqrt, 0.3]}
+  lgbm:
+    max_rounds: 2000
+    early_stopping_rounds: 100
+    learning_rate: 0.03
+    grid: {num_leaves: [15, 31]}
+  mlp:
+    max_epochs: 400
+    patience: 60
+    weight_decay: 0.0005
+    grid: {hidden: [64, 128], lr: [0.01, 0.003], dropout: [0.5]}
+
+gnn:
+  models: [gcn, skip_gcn, sage, gat]
+  direction: undirected
+  num_layers: 2
+  gat_heads: 4
+  max_epochs: 300
+  patience: 50
+  weight_decay: 0.0005
+  grid: {hidden: [64, 128], lr: [0.01, 0.003], dropout: [0.5]}
+
+ablation:
+  model: best
+  features: AF
+  directions: [undirected, directed, bidirectional]
+
+hybrid:
+  gnn: best
+  trees: [rf, lgbm]
+  modes: [emb, oof]
+  oof_blocks: 3
+
+rolling:
+  enabled: true
+  models: [rf, lgbm]
+  features: AF
+  num_seeds: 3            # cut from 5: each seed costs 15 refits per model
+
+random_split:
+  enabled: true
+  test_fraction: 0.3
+
+analysis:
+  tsne_sample: 6000
+
+explain:
+  shap_sample: 2000
+  gnn_examples: 3
+  explainer_epochs: 200

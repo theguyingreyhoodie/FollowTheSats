@@ -1,0 +1,82 @@
+# Quick config: one seed, small models, few epochs, no hyperparameter search.
+# Purpose: prove the whole pipeline works end to end in minutes on a laptop CPU.
+# The numbers it produces are real but rougher than the full config's
+# (one seed means no standard deviation; nothing is tuned).
+
+run_name: quick
+seeds: [0]
+device: auto          # auto = CUDA if available, else CPU
+
+paths:
+  data_dir: data
+  results_dir: results
+  models_dir: models
+
+# Temporal split, as inclusive [first, last] time steps.
+split:
+  train: [1, 29]
+  val: [30, 34]
+  test: [35, 49]
+
+feature_sets: [LF, AF]
+alert_k: 50           # analyst alert budget: review the top-K scores per time step
+
+# A `grid` lists candidate values. With one candidate per key there is no
+# search; with several, the best validation PR-AUC wins (see protocol.py).
+baselines:
+  logreg:
+    max_iter: 300
+    grid: {C: [0.1]}
+  rf:
+    n_estimators: 100
+    grid: {max_features: [sqrt]}
+  lgbm:
+    max_rounds: 400
+    early_stopping_rounds: 40
+    learning_rate: 0.05
+    grid: {num_leaves: [31]}
+  mlp:
+    hidden: 64
+    max_epochs: 200
+    patience: 40
+    weight_decay: 0.0005
+    grid: {lr: [0.005], dropout: [0.3]}
+
+gnn:
+  models: [gcn, skip_gcn, sage, gat]
+  direction: undirected     # default graph treatment for the main comparison
+  num_layers: 2
+  gat_heads: 4
+  max_epochs: 120
+  patience: 25
+  weight_decay: 0.0005
+  grid: {hidden: [64], lr: [0.01], dropout: [0.3]}
+
+ablation:
+  model: best               # "best" = GNN with the highest validation PR-AUC
+  features: AF
+  directions: [undirected, directed, bidirectional]
+
+hybrid:
+  gnn: best                 # per feature set, by validation PR-AUC
+  trees: [rf, lgbm]
+  modes: [emb, oof]         # emb = GNN embeddings (classic); oof = out-of-fold GNN score
+  oof_blocks: 3             # number of time blocks for the out-of-fold scores
+
+rolling:                    # stretch goal: retrain before each test time step
+  enabled: true
+  models: [rf, lgbm]
+  features: AF
+  num_seeds: 1
+
+random_split:               # optional: shows how a random split inflates scores
+  enabled: true
+  test_fraction: 0.3
+
+analysis:
+  tsne_sample: 3000
+
+explain:
+  shap_sample: 500
+  gnn_examples: 3
+  explainer_epochs: 200

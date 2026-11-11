@@ -1,0 +1,30 @@
+# Exact versions this project was built and tested with (Python 3.12, macOS arm64).
+# No optional compiled PyG extensions (torch-scatter, torch-sparse, pyg-lib) are needed.
+#
+# macOS only: LightGBM needs the OpenMP library from Homebrew ->  brew install libomp
+# GPU: for a CUDA build of PyTorch, install torch first using the command from
+#      https://pytorch.org/get-started/locally/ and then run this file.
+
+torch==2.15.0
+torch-geometric==2.8.1
+scikit-learn==1.9.1
+lightgbm==4.7.0
+numpy==2.5.4
+scipy==1.18.1
+pandas==3.1.1
+matplotlib==3.11.2
+networkx==3.7
+shap==0.54.1
+streamlit==1.67.0
+altair==6.3.0
+PyYAML==6.0.3
+joblib==1.6.0
+pytest==9.2.0
+
+# Dataset download through the Kaggle API (optional; PyG's downloader is the fallback)
+kaggle==2.2.5
+six==1.17.0
+
+# Install this project's own package (src/btc_aml) in editable mode,
+# so `python -m btc_aml.<module>` works from anywhere.
+-e .
