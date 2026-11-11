@@ -1,0 +1,186 @@
+[
+  {
+    "figure": "gnn_explanation_1.png",
+    "tx_id": 12673136,
+    "time_step": 41,
+    "model": "sage",
+    "score": 0.9986668825149536,
+    "threshold": 0.9460877180099487,
+    "score_all_edges_removed": 0.1389254927635193,
+    "score_only_important_edges": 1.0,
+    "edges_in_scope": 31,
+    "edges_marked_important": 3,
+    "neighbourhood_nodes": 27,
+    "neighbourhood_edges": 28,
+    "top_features": [
+      [
+        "agg_55",
+        0.6513766050338745
+      ],
+      [
+        "agg_13",
+        0.5213843584060669
+      ],
+      [
+        "agg_19",
+        0.47349435091018677
+      ],
+      [
+        "agg_50",
+        0.39231204986572266
+      ],
+      [
+        "local_81",
+        0.23144404590129852
+      ]
+    ],
+    "top_edges": [
+      {
+        "from_tx": 12661072,
+        "to_tx": 1364199,
+        "importance": 0.9974057078361511
+      },
+      {
+        "from_tx": 12673136,
+        "to_tx": 12780496,
+        "importance": 0.9973816275596619
+      },
+      {
+        "from_tx": 12661072,
+        "to_tx": 12673136,
+        "importance": 0.983564019203186
+      },
+      {
+        "from_tx": 12661072,
+        "to_tx": 12780176,
+        "importance": 0.004288678057491779
+      },
+      {
+        "from_tx": 12673136,
+        "to_tx": 12779932,
+        "importance": 0.003396362066268921
+      }
+    ]
+  },
+  {
+    "figure": "gnn_explanation_2.png",
+    "tx_id": 96929263,
+    "time_step": 40,
+    "model": "sage",
+    "score": 1.0,
+    "threshold": 0.9460877180099487,
+    "score_all_edges_removed": 0.9749428033828735,
+    "score_only_important_edges": 1.0,
+    "edges_in_scope": 7,
+    "edges_marked_important": 2,
+    "neighbourhood_nodes": 5,
+    "neighbourhood_edges": 4,
+    "top_features": [
+      [
+        "agg_13",
+        0.6100844740867615
+      ],
+      [
+        "agg_55",
+        0.018297001719474792
+      ],
+      [
+        "agg_14",
+        0.014171906746923923
+      ],
+      [
+        "agg_16",
+        0.013285196386277676
+      ],
+      [
+        "agg_62",
+        0.011759547516703606
+      ]
+    ],
+    "top_edges": [
+      {
+        "from_tx": 96929269,
+        "to_tx": 96929263,
+        "importance": 0.9971989393234253
+      },
+      {
+        "from_tx": 96929263,
+        "to_tx": 107782289,
+        "importance": 0.0029488939326256514
+      },
+      {
+        "from_tx": 708454,
+        "to_tx": 96929269,
+        "importance": 0.00293915206566453
+      },
+      {
+        "from_tx": 96929263,
+        "to_tx": 107782882,
+        "importance": 0.0029370749834924936
+      }
+    ]
+  },
+  {
+    "figure": "gnn_explanation_3.png",
+    "tx_id": 70328737,
+    "time_step": 35,
+    "model": "sage",
+    "score": 0.9809593558311462,
+    "threshold": 0.9460877180099487,
+    "score_all_edges_removed": 0.9578202366828918,
+    "score_only_important_edges": 0.997319757938385,
+    "edges_in_scope": 13,
+    "edges_marked_important": 9,
+    "neighbourhood_nodes": 10,
+    "neighbourhood_edges": 11,
+    "top_features": [
+      [
+        "agg_13",
+        0.9300300478935242
+      ],
+      [
+        "local_55",
+        0.8253533244132996
+      ],
+      [
+        "agg_50",
+        0.8097567558288574
+      ],
+      [
+        "local_53",
+        0.800284206867218
+      ],
+      [
+        "local_52",
+        0.7866590619087219
+      ]
+    ],
+    "top_edges": [
+      {
+        "from_tx": 55735705,
+        "to_tx": 55801561,
+        "importance": 0.9972602128982544
+      },
+      {
+        "from_tx": 70328738,
+        "to_tx": 70328731,
+        "importance": 0.9972577691078186
+      },
+      {
+        "from_tx": 69713600,
+        "to_tx": 70328731,
+        "importance": 0.9972530007362366
+      },
+      {
+        "from_tx": 55735705,
+        "to_tx": 70328737,
+        "importance": 0.9972527623176575
+      },
+      {
+        "from_tx": 70328737,
+        "to_tx": 70328731,
+        "importance": 0.9972489476203918
+      }
+    ]
+  }
+]

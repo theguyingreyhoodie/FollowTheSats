@@ -1,0 +1,52 @@
+{
+  "num_nodes": 203769,
+  "num_edges": 234355,
+  "num_illicit": 4545,
+  "num_licit": 42019,
+  "num_unknown": 157205,
+  "illicit_share_of_labeled": 0.09760759384932566,
+  "mean_total_degree": 2.3002026804862368,
+  "median_total_degree": 2.0,
+  "max_in_degree": 284,
+  "max_out_degree": 472,
+  "nodes_per_step_min": 1089,
+  "nodes_per_step_max": 7880,
+  "splits": {
+    "train": {
+      "nodes": 120804,
+      "illicit": 2871,
+      "licit": 23510,
+      "unknown": 94423,
+      "illicit_share_of_labeled": 0.10882832341457867,
+      "all_licit_accuracy": 0.8911716765854213,
+      "all_licit_illicit_f1": 0.0
+    },
+    "val": {
+      "nodes": 15461,
+      "illicit": 591,
+      "licit": 2922,
+      "unknown": 11948,
+      "illicit_share_of_labeled": 0.1682322801024765,
+      "all_licit_accuracy": 0.8317677198975235,
+      "all_licit_illicit_f1": 0.0
+    },
+    "test": {
+      "nodes": 67504,
+      "illicit": 1083,
+      "licit": 15587,
+      "unknown": 50834,
+      "illicit_share_of_labeled": 0.06496700659868027,
+      "all_licit_accuracy": 0.9350329934013197,
+      "all_licit_illicit_f1": 0.0
+    },
+    "trainval": {
+      "nodes": 136265,
+      "illicit": 3462,
+      "licit": 26432,
+      "unknown": 106371,
+      "illicit_share_of_labeled": 0.11580919248009634,
+      "all_licit_accuracy": 0.8841908075199036,
+      "all_licit_illicit_f1": 0.0
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "config": "full",
+  "seeds": 5,
+  "device": "cpu",
+  "machine": "Darwin arm64, 10 CPU cores, Python 3.12.16",
+  "phases": {
+    "data": 0.0,
+    "eda": 0.5,
+    "baselines": 805.3,
+    "gnn": 4705.6,
+    "ablation": 662.7,
+    "hybrid": 2146.0,
+    "rolling": 530.8,
+    "random_split": 147.9,
+    "analysis": 13.0,
+    "explain": 35.8
+  },
+  "total_seconds": 9047.6
+}
